@@ -22,9 +22,12 @@ Il progetto utilizza un **ESP32 Mini**, un **LED Ring RGB** e una **Web App loca
 
 ## 🛠️ Componenti
 
-- ESP32 Mini  
-- LED Ring RGB / NeoPixel  
-- Struttura stampata in 3D  
+- ESP32 Mini: https://link.amazon/B00x8kVr5
+- LED Ring RGB / NeoPixel: https://link.amazon/B04jFvVQS
+- Pla Bianco: https://link.amazon/B065QobIY
+- Jumper: https://link.amazon/B0eURkFrb
+- NFC: https://link.amazon/B0h0Xi9Gp
+- Fascette termorestringenti: https://link.amazon/B01QiYgsx
 
 ---
 
