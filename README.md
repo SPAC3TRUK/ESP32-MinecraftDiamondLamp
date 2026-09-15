@@ -101,6 +101,14 @@ Se lo ricrei, mi farebbe piacere vedere il tuo risultato!
 
 ---
 
+
+
+## 📸 Foto
+<img src="Immagini/1.png" width="350">
+<img src="Immagini/4.png" width="350">
+
+---
+
 ## 🔐 Licenza
 
 Questo progetto è distribuito sotto licenza:
