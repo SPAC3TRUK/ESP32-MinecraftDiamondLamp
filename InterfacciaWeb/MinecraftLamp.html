@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Lampada LED ESP32</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: #f3f3f3;
+      padding: 20px;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 26px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      margin: 8px 0;
+      border-radius: 10px;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      display: block;
+    }
+
+    .btn-effetto {
+      background: #1976d2;
+      color: #fff;
+    }
+
+    .btn-on {
+      background: #37ec00;
+      color: #fff;
+    }
+
+    .btn-off {
+      background: #E53935;
+      color: #fff;
+    }
+
+    .btn-applica {
+      background: #FF9800;
+      color: #fff;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 12px 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0 4px;
+      font-weight: bold;
+    }
+
+    input[type="color"],
+    input[type="range"] {
+      width: 100%;
+    }
+
+    .info-row {
+      margin: 4px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Lampada LED ESP32</h1>
+
+    <div class="card">
+      <h2>Effetti</h2>
+      <button class="btn btn-effetto" onclick="setEffetto(0)">Ciclo colori</button>
+      <button class="btn btn-effetto" onclick="setEffetto(1)">Effetto trasversale</button>
+      <button class="btn btn-effetto" onclick="setEffetto(2)">Lampeggio + cambio colore</button>
+      <button class="btn btn-effetto" onclick="setEffetto(3)">Colore fisso</button>
+    </div>
+
+    <div class="card">
+      <h2>Colore & Stato</h2>
+      <label for="pickerColore">Colore</label>
+      <input type="color" id="pickerColore" value="#ff0000">
+      <button class="btn btn-on" onclick="accendi()">Accendi</button>
+      <button class="btn btn-off" onclick="spegni()">Spegni</button>
+      <button class="btn btn-applica" onclick="applicaColore()">Imposta colore</button>
+    </div>
+
+    <div class="card">
+      <h2>Luminosità</h2>
+      <label for="sliderLuminosita">Luminosità</label>
+      <input type="range" id="sliderLuminosita" min="0" max="255" value="128">
+      <button class="btn btn-applica" onclick="applicaLuminosita()">Imposta luminosità</button>
+    </div>
+
+    <div class="card">
+      <h2>Impostazioni / Info</h2>
+      <div class="info-row">IP: <span id="ip"></span></div>
+      <div class="info-row">MAC: <span id="mac"></span></div>
+      <div class="info-row">Firmware: <span id="fw"></span></div>
+    </div>
+  </div>
+
+  <script>
+    const base = ""; // stesso host dell'ESP32
+
+    // chiamate asincrone con ajax
+    function ajax(path, cb) {
+      var x = new XMLHttpRequest();
+      x.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) { cb && cb(this.responseText); }
+      };
+      x.open("GET", base + path, true);
+      x.send();
+    }
+
+    // imposta effetto
+    function setEffetto(e) { ajax("/impostaEffetto?e=" + e); }
+    function applicaColore() {
+      var c = document.getElementById("pickerColore").value;
+      ajax("/impostaColore?c=" + encodeURIComponent(c));
+    }
+    // applica luminosità
+    function applicaLuminosita() {
+      var b = document.getElementById("sliderLuminosita").value;
+      ajax("/impostaLuminosita?b=" + b);
+    }
+    function accendi() { ajax("/accendi"); }
+    function spegni() { ajax("/spegni"); }
+
+    // carica informazioni
+    function caricaInfo() {
+      ajax("/info", function (r) {
+        var d = JSON.parse(r);
+        document.getElementById("ip").textContent = d.ip;
+        document.getElementById("mac").textContent = d.mac;
+        document.getElementById("fw").textContent = d.fw;
+      });
+    }
+
+    // carica stato
+    function caricaStato() {
+      ajax("/stato", function (r) {
+        var d = JSON.parse(r);
+        document.getElementById("pickerColore").value = "#" + d.colore.toString(16).padStart(6, '0');
+        document.getElementById("sliderLuminosita").value = d.luminosita;
+      });
+    }
+
+    setInterval(caricaStato, 1000);
+    caricaInfo();
+    caricaStato();
+  </script>
+
+</body>
+
+</html>
