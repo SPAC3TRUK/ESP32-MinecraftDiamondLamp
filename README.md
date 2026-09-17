@@ -95,6 +95,10 @@ README.md
 
 ## 🎥 Video
 
+- Instagram Reel: https://www.instagram.com/reel/DdZZKqiMZhV/?stkn=NnB2YzBtbjNwbHB1
+- YouTube Short: https://www.instagram.com/p/DdZZAeKDNgT/?stkn=YmRwZjBmNWcwZnlr
+- Instagram Post: https://youtube.com/shorts/xnRJrdtlhS4?is=AuE8z6JnThpuvshR
+
 ---
 
 ## 📸 Progetto
