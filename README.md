@@ -1,7 +1,7 @@
 # 💎 Minecraft Diamond Block — ESP32 Smart Lamp
 ![Arduino](https://img.shields.io/badge/Framework-Arduino-00979D?style=flat&logo=Arduino&logoColor=white)
-![ESP8266](https://img.shields.io/badge/ESP8266-E01E5A?style=for-the-badge&logo=microchip&logoColor=white)
-![Espressif](https://img.shields.io/badge/Espressif-ESP8266-E7352C?style=for-the-badge&logo=espressif&logoColor=white)
+![ESP32](https://img.shields.io/badge/ESP32-E01E5A?style=for-the-badge&logo=microchip&logoColor=white)
+![Espressif](https://img.shields.io/badge/Espressif-ESP32-E7352C?style=for-the-badge&logo=espressif&logoColor=white)
 ![Wi-Fi](https://img.shields.io/badge/Connectivity-Wi--Fi-0078D4?style=flat&logo=wifi&logoColor=white)
 ![License: CC BY-NC 4.0](https://licensebuttons.net/l/by-nc/4.0/88x31.png)
 
