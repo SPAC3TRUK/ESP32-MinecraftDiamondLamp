@@ -3,6 +3,10 @@
 ![ESP32](https://img.shields.io/badge/ESP32-E01E5A?style=for-the-badge&logo=microchip&logoColor=white)
 ![Espressif](https://img.shields.io/badge/Espressif-ESP32-E7352C?style=for-the-badge&logo=espressif&logoColor=white)
 ![Wi-Fi](https://img.shields.io/badge/Connectivity-Wi--Fi-0078D4?style=flat&logo=wifi&logoColor=white)
+![C#](https://img.shields.io/badge/Language-C%23-239120?style=flat&logo=c-sharp&logoColor=white)
+![HTML5](https://img.shields.io/badge/Web-HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/Web-CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/Web-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![License: CC BY-NC 4.0](https://licensebuttons.net/l/by-nc/4.0/88x31.png)
 
 Ho ricreato il **Minecraft Diamond Block** con la stampante 3D e trasformato in una **lampada IoT** controllabile via **Wi‑Fi**.  
